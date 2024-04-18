@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.WeatherFragment"
+    android:padding="4dp">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <AutoCompleteTextView
+        android:layout_width="150dp"
+        android:singleLine="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Yerevan"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/location"/>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/location"
+        app:layout_constraintStart_toEndOf="@id/location"
+        android:background="?attr/selectableItemBackground"
+        android:text="Search"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/current_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        android:textSize="48sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#222222"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/todays_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/current_temperature"
+        android:text=""
+        android:visibility="gone"
+        android:textColor="#444444"
+        app:layout_constraintStart_toStartOf="@id/current_temperature"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/feels_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/todays_temperature"
+        android:text=""
+        android:textColor="#444444"
+        app:layout_constraintStart_toStartOf="@id/current_temperature"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/feels_like"
+        android:text=""
+        android:textColor="#444444"
+        app:layout_constraintStart_toStartOf="@id/feels_like"
+        android:textSize="14sp"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/weather_image"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:layout_constraintTop_toBottomOf="@id/location"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"/>
+
+    <TextView
+        android:id="@+id/weather_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/weather_image"
+        app:layout_constraintStart_toStartOf="@id/weather_image"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/forecast_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7-day forecast"
+        app:layout_constraintTop_toBottomOf="@id/weather_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#555555"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/forecast_text"
+        android:background="#888888"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
